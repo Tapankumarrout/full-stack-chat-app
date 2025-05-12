@@ -1,7 +1,7 @@
 import { generateToken } from "../lib/utils.js";
 import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
-// import cloudinary from "../lib/cloudinary.js";
+import cloudinary from "../lib/cloudinary.js";
 
 export const signup = async (req, res) => {
   const { fullName, email, password } = req.body;
@@ -47,9 +47,6 @@ export const signup = async (req, res) => {
   }
 };
 
-
-
-
 export const login = async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -87,8 +84,6 @@ export const logout = (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
-
-
 
 export const updateProfile = async (req, res) => {
   try {
